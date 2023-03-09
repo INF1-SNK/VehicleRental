@@ -5,11 +5,10 @@ import com.example.Model.ContratLocation;
 import com.example.Service.ClientService;
 import com.example.Service.ContratLocationService;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import java.util.List;
 
 public class ContratLocationRessource {
@@ -46,5 +45,14 @@ public class ContratLocationRessource {
         contratLocationService.deleteClientById(contratLocation);
     }
 
-    //PUT – Edit Client api/client
+    //PUT – Edit Client api/contratLocation/{id}
+    /**
+    @PUT
+    @Path("/{id}")
+    public ContratLocation put(@PathParam("id") ObjectId id, ContratLocation contratlocation) {
+        if (contratlocation.findById(id) == null) {
+            throw new ContratlocationErrorException();
+        }
+        return contratlocation.update(new ContratLocation(id, contratlocation.getDateDebut(), contratlocation.getDateFin(), contratlocation.getVehicule(), contratlocation.getMontantTotal(), contratlocation.getMontantPenalite());
+    } **/
 }

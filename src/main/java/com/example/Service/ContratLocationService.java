@@ -85,7 +85,7 @@ public class ContratLocationService {
     private float computeAmount(Date dateDebut, Date dateFin, Vehicule v){
         float amount = computeDifferenceBetweenDateInDays(dateDebut, dateFin) * v.getPrix();
         return amount;
-    };
+    }
 
     public int computeDifferenceBetweenDateInDays(Date dateDebut, Date dateFin) {
         int differenceInDays = (int) ChronoUnit.DAYS.between((Temporal) dateDebut, (Temporal) dateFin);
