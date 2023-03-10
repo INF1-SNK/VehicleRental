@@ -5,7 +5,9 @@ import com.example.Service.ContratLocationServiceImpl;
 import org.bson.Document;
 
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
 import java.util.List;
 
 public class ContratLocationRessource {

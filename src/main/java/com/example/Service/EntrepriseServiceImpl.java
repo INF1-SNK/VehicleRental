@@ -15,7 +15,7 @@ import java.util.List;
 import static com.mongodb.client.model.Filters.eq;
 
 @ApplicationScoped
-public class EntrepriseServiceImpl implements EntrepriseService{
+public class EntrepriseServiceImpl implements EntrepriseService {
     @Inject
     MongoClient mongoClient;
 
@@ -75,7 +75,7 @@ public class EntrepriseServiceImpl implements EntrepriseService{
         return 0;
     }
 
-    private MongoCollection getCollection(){
+    private MongoCollection getCollection() {
         return mongoClient.getDatabase("client").getCollection("client");
     }
 

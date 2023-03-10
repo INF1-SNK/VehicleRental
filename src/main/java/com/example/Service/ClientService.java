@@ -7,7 +7,10 @@ import java.util.List;
 
 public interface ClientService {
     List<Client> list();
+
     void add(Client client);
+
     Document getClientById(Client client);
+
     void deleteClientById(Client client);
 }

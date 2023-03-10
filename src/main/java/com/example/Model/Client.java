@@ -5,8 +5,6 @@ import org.bson.types.ObjectId;
 
 public class Client {
 
-    public enum Sexe { M, F }
-
     private ObjectId id;
     private String nom;
     private String prenom;
@@ -15,15 +13,9 @@ public class Client {
     private String adresse;
     private String mail;
     private String mdp;
-
     private String nomCB;
-
     private int numeroBancaire;
-
     private int codeCVV;
-
-
-
 
     public Client(String nom, String prenom, Enum<Sexe> sexe, int age, String adresse, String mail, String mdp, String nomCB, int numeroBancaire, int codeCVV) {
         this.nom = nom;
@@ -38,9 +30,9 @@ public class Client {
         this.codeCVV = codeCVV;
     }
 
+
     public Client() {
     }
-
 
     public String getNom() {
         return nom;
@@ -97,9 +89,11 @@ public class Client {
     public void setMdp(String mdp) {
         this.mdp = mdp;
     }
+
     public ObjectId getId() {
         return id;
     }
+
     public String getNomCB() {
         return nomCB;
     }
@@ -123,4 +117,6 @@ public class Client {
     public void setCodeCVV(int codeCVV) {
         this.codeCVV = codeCVV;
     }
+
+    public enum Sexe {M, F}
 }

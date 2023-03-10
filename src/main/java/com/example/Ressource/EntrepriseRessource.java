@@ -61,8 +61,7 @@ public class EntrepriseRessource {
     //PUT – Edit Entreprise api/entreprise
     /**
      @PUT
-     @Path("/{id}")
-     public Entreprise put(@PathParam("id") ObjectId id, Entrprise entreprise) {
+     @Path("/{id}") public Entreprise put(@PathParam("id") ObjectId id, Entrprise entreprise) {
      if (entreprise.findById(id) == null) {
      throw new EntrpriseErrorException();
      }

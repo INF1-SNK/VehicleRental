@@ -17,10 +17,11 @@ import static com.mongodb.client.model.Filters.eq;
 @ApplicationScoped
 public class ClientServiceImpl implements ClientService {
 
-    @Inject MongoClient mongoClient;
+    @Inject
+    MongoClient mongoClient;
 
     //GET – Fetch All client api/student
-    public List<Client> list(){
+    public List<Client> list() {
         List<Client> list = new ArrayList<>();
         MongoCursor cursor = getCollection().find().iterator();
 
@@ -47,7 +48,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     //POST - Create User: api/student
-    public void add(Client client){
+    public void add(Client client) {
         Document document = new Document()
                 .append("noms", client.getNom())
                 .append("prenoms", client.getPrenom())
@@ -73,10 +74,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
 
-
-
-
-    private MongoCollection getCollection(){
+    private MongoCollection getCollection() {
         return mongoClient.getDatabase("client").getCollection("client");
     }
 

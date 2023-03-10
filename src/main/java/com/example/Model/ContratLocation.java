@@ -70,9 +70,14 @@ public class ContratLocation {
     public void setVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
     }
-    public Client getClient() { return client; }
 
-    public void setClient(Client client) { this.client = client; }
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     public Entreprise getEntreprise() {
         return entreprise;

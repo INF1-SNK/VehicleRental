@@ -6,9 +6,6 @@ import java.time.Year;
 
 public class Vehicule {
 
-    public enum EtatLocation { LOUER, NON_LOUER }
-    public enum TypeVehicule { SUV, UTILITAIRE, FOURGONNETTE, VOITURE }
-
     private ObjectId id;
     private String nom;
     private String marque;
@@ -18,8 +15,7 @@ public class Vehicule {
     private float kilometrage;
     private Enum<EtatLocation> etat;
     private Enum<TypeVehicule> type;
-
-    public Vehicule(String nom, String marque, String modele, Year annee, float prix, float kilometrage, Enum<EtatLocation> etat,  Enum<TypeVehicule> type) {
+    public Vehicule(String nom, String marque, String modele, Year annee, float prix, float kilometrage, Enum<EtatLocation> etat, Enum<TypeVehicule> type) {
         this.nom = nom;
         this.marque = marque;
         this.modele = modele;
@@ -29,7 +25,6 @@ public class Vehicule {
         this.etat = etat;
         this.type = type;
     }
-
 
     public ObjectId getId() {
         return id;
@@ -98,4 +93,8 @@ public class Vehicule {
     public void setType(Enum<TypeVehicule> type) {
         this.type = type;
     }
+
+    public enum EtatLocation {LOUER, NON_LOUER}
+
+    public enum TypeVehicule {SUV, UTILITAIRE, FOURGONNETTE, VOITURE}
 }

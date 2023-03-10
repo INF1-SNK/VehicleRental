@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface EntrepriseService {
 
-        List<Entreprise> list();
+    List<Entreprise> list();
 
-        void add(Entreprise entreprise);
+    void add(Entreprise entreprise);
 
-        Document getEntrepriseById(Entreprise entreprise);
+    Document getEntrepriseById(Entreprise entreprise);
 
-        void deleteEntrepriseById(Entreprise entreprise);
+    void deleteEntrepriseById(Entreprise entreprise);
 
 
     double getProfitsFirstMonths();

@@ -21,10 +21,11 @@ import static com.mongodb.client.model.Filters.eq;
 
 public class ContratLocationServiceImpl implements ContratLocationService {
 
-    @Inject MongoClient mongoClient;
+    @Inject
+    MongoClient mongoClient;
 
     //GET – Fetch All Contrat api/contrats
-    public List<ContratLocation> list(){
+    public List<ContratLocation> list() {
 
         List<ContratLocation> list = new ArrayList<>();
 
@@ -51,7 +52,7 @@ public class ContratLocationServiceImpl implements ContratLocationService {
     }
 
     //POST - Create User: api/student
-    public void add(ContratLocation contratLocation){
+    public void add(ContratLocation contratLocation) {
         Document document = new Document()
                 .append("dateDebut", contratLocation.getDateDebut())
                 .append("dateFin", contratLocation.getDateFin())
@@ -76,7 +77,7 @@ public class ContratLocationServiceImpl implements ContratLocationService {
 
     //Function
 
-    private float computeAmount(Date dateDebut, Date dateFin, Vehicule v){
+    private float computeAmount(Date dateDebut, Date dateFin, Vehicule v) {
         float amount = computeDifferenceBetweenDateInDays(dateDebut, dateFin) * v.getPrix();
         return amount;
     }
@@ -85,7 +86,8 @@ public class ContratLocationServiceImpl implements ContratLocationService {
         int differenceInDays = (int) ChronoUnit.DAYS.between((Temporal) dateDebut, (Temporal) dateFin);
         return differenceInDays;
     }
-    private MongoCollection getCollection(){
+
+    private MongoCollection getCollection() {
         return mongoClient.getDatabase("client").getCollection("client");
     }
 

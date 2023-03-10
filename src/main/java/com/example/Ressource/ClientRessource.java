@@ -9,8 +9,6 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Path("client")
@@ -58,10 +56,10 @@ public class ClientRessource {
     @Path("/{id}")
     public Client put(@PathParam("id") ObjectId id, Client client) {
         Client finalClient = null;
-        for(Client c : clientService.list()){
+        for (Client c : clientService.list()) {
             if (c.getId().equals(id)) finalClient = c;
         }
-        if (finalClient == null){
+        if (finalClient == null) {
             throw new ClientErrorException(Response.Status.valueOf("not found"));
         }
         clientService.deleteClientById(finalClient);

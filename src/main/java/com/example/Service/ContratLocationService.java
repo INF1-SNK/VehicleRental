@@ -1,6 +1,5 @@
 package com.example.Service;
 
-import com.example.Model.Client;
 import com.example.Model.ContratLocation;
 import org.bson.Document;
 

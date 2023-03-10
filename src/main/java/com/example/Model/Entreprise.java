@@ -7,7 +7,7 @@ public class Entreprise {
     private ObjectId id;
     private int NumeroSiret;
     private String nom;
-    private String compteBancaireIBAN ;
+    private String compteBancaireIBAN;
     private String adresse;
     private int telRepresentantLegal;
 
