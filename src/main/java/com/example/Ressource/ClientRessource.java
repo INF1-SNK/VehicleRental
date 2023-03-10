@@ -22,8 +22,7 @@ public class ClientRessource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Client> list() {
-        ArrayList<Client> list = new ArrayList<>();
-        return list;
+        return clientService.list();
     }
 
     //Create User: api/client
