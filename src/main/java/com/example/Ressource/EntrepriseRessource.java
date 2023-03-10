@@ -1,7 +1,7 @@
 package com.example.Ressource;
 
 import com.example.Model.Entreprise;
-import com.example.Service.EntrepriseService;
+import com.example.Service.EntrepriseServiceImpl;
 import org.bson.Document;
 
 import javax.inject.Inject;
@@ -10,39 +10,40 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import java.util.List;
 
+@Path("entreprise")
 public class EntrepriseRessource {
 
 
     @Inject
-    EntrepriseService entrepriseService;
+    EntrepriseServiceImpl entrepriseServiceImpl;
 
     //GET – Fetch All Users api/entreprises
-    @Path("api/entreprises")
+    @Path("list")
     @GET
     public List<Entreprise> list() {
-        return entrepriseService.list();
+        return entrepriseServiceImpl.list();
     }
 
     //Create User: api/entreprise
-    @Path("api/entreprise/add")
+    @Path("new")
     @POST
     public List<Entreprise> add(Entreprise entreprise) {
-        entrepriseService.add(entreprise);
+        entrepriseServiceImpl.add(entreprise);
         return list();
     }
 
     //GET - User by ID : api/entreprise/{id}
-    @Path("api/entreprise/{id}")
+    @Path("{id}")
     @GET
     public Document getById(Entreprise entreprise) {
-        return entrepriseService.getClientById(entreprise);
+        return entrepriseServiceImpl.getEntrepriseById(entreprise);
     }
 
     //DELETE : api/client/{id}
-    @Path("api/entreprise/{id}")
+    @Path("remove/{id}")
     @GET
     public void deleteById(Entreprise entreprise) {
-        entrepriseService.deleteClientById(entreprise);
+        entrepriseServiceImpl.deleteEntrepriseById(entreprise);
     }
 
     //PUT – Edit Client api/client
