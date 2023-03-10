@@ -3,10 +3,12 @@ package com.example.Ressource;
 import com.example.Model.Client;
 import com.example.Service.ClientService;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,15 +53,21 @@ public class ClientRessource {
     }
 
     //PUT – Edit Client api/client
-    /**
+
     @PUT
     @Path("/{id}")
     public Client put(@PathParam("id") ObjectId id, Client client) {
-        if (client.findById(id) == null) {
-            throw new ClientErrorException();
+        Client finalClient = null;
+        for(Client c : clientService.list()){
+            if (c.getId().equals(id)) finalClient = c;
         }
-        return client.update(new Client(id, client.getNom(), client.getPrenom(), client.getSexe(), client.getAge(), client.getAdresse(), client.getMail(), client.getMdp()));
+        if (finalClient == null){
+            throw new ClientErrorException(Response.Status.valueOf("not found"));
+        }
+        clientService.deleteClientById(finalClient);
+        finalClient = client;
+        clientService.add(finalClient);
+        return finalClient;
     }
-    **/
 
 }
