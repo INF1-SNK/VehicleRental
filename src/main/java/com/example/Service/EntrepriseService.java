@@ -14,4 +14,8 @@ public interface EntrepriseService {
     Document getEntrepriseById(Entreprise entreprise);
 
     void deleteEntrepriseById(Entreprise entreprise);
+
+    double getProfitsFirstMonths();
+
+    double getProfitsLastMonths();
 }

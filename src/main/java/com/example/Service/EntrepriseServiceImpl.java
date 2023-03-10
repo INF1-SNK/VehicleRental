@@ -65,6 +65,16 @@ public class EntrepriseServiceImpl implements EntrepriseService {
         getCollection().deleteOne(id);
     }
 
+    @Override
+    public double getProfitsFirstMonths() {
+        return 0;
+    }
+
+    @Override
+    public double getProfitsLastMonths() {
+        return 0;
+    }
+
     private MongoCollection getCollection(){
         return mongoClient.getDatabase("client").getCollection("client");
     }
