@@ -15,12 +15,12 @@ import java.util.List;
 import static com.mongodb.client.model.Filters.eq;
 
 @ApplicationScoped
-public class EntrepriseServiceImpl implements EntrepriseService {
+public class EntrepriseServiceImpl implements EntrepriseService{
     @Inject
     MongoClient mongoClient;
 
     //GET – Fetch All client api/entreprise
-    public List<Entreprise> list(){
+    public List<Entreprise> list() {
         List<Entreprise> list = new ArrayList<>();
         MongoCursor cursor = getCollection().find().iterator();
 
@@ -42,7 +42,7 @@ public class EntrepriseServiceImpl implements EntrepriseService {
     }
 
     //POST - Create User: api/entreprise
-    public void add(Entreprise entreprise){
+    public void add(Entreprise entreprise) {
         Document document = new Document()
                 .append("nom", entreprise.getNom())
                 .append("numeroSiret", entreprise.getNumeroSiret())
@@ -65,8 +65,10 @@ public class EntrepriseServiceImpl implements EntrepriseService {
         getCollection().deleteOne(id);
     }
 
-    private MongoCollection getCollection(){
+    private MongoCollection getCollection() {
         return mongoClient.getDatabase("client").getCollection("client");
     }
 
 }
+
+
