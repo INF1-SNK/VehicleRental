@@ -53,7 +53,7 @@ public class EntrepriseRessource {
      if (entreprise.findById(id) == null) {
      throw new EntrpriseErrorException();
      }
-     return entreprise.update(new Entreprise(id, entreprise.getNom(), entreprise.get(), client.getSexe(), client.getAge(), client.getAdresse(), client.getMail(), client.getMdp()));
+     return entreprise.update(new Entreprise(client.getNumeroSiret(), entreprise.getNom(), entreprise.getCompteBnacaireIBAN(), client.getadresse(), client.getNumeroSiret(), client.getAdresse(), client.gettelRepresantantLegal()));
      }
      **/
 
