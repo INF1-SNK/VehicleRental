@@ -51,14 +51,14 @@ public class EntrepriseRessource {
         return entrepriseService.getEntrepriseById(entreprise);
     }
 
-    //DELETE : api/client/{id}
+    //DELETE : api/entreprise/{id}
     @Path("remove/{id}")
     @GET
     public void deleteById(Entreprise entreprise) {
         entrepriseService.deleteEntrepriseById(entreprise);
     }
 
-    //PUT – Edit Client api/client
+    //PUT – Edit Entreprise api/entreprise
     /**
      @PUT
      @Path("/{id}")
