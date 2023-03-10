@@ -8,40 +8,45 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
+@Path("client")
 public class ClientRessource {
 
     @Inject
     ClientService clientService;
 
     //GET – Fetch All Users api/client
-    @Path("api/client")
+    @Path("list")
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Client> list() {
-        return clientService.list();
+        ArrayList<Client> list = new ArrayList<>();
+        return list;
     }
 
     //Create User: api/client
-    @Path("api/client/add")
+    @Path("new")
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     public List<Client> add(Client client) {
         clientService.add(client);
         return list();
     }
 
     //GET - User by ID : api/client/{id}
-    @Path("api/client/{id}")
+    @Path("{id}")
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public Document getById(Client client) {
         return clientService.getClientById(client);
     }
 
     //DELETE : api/client/{id}
-    @Path("api/client/{id}")
+    @Path("remove/{id}")
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public void deleteById(Client client) {
         clientService.deleteClientById(client);
     }
