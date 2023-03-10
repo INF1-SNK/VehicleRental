@@ -39,7 +39,7 @@ public class EntrepriseRessource {
     }
 
     //DELETE : api/client/{id}
-    @Path("api/client/{id}")
+    @Path("api/entreprise/{id}")
     @GET
     public void deleteById(Entreprise entreprise) {
         entrepriseService.deleteClientById(entreprise);
