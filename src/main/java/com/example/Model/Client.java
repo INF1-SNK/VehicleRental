@@ -15,9 +15,16 @@ public class Client {
     private String mail;
     private String mdp;
 
+    private String nomCB;
+
+    private int numeroBancaire;
+
+    private int codeCVV;
 
 
-    public Client(String nom, String prenom, Enum<Sexe> sexe, int age, String adresse, String mail, String mdp) {
+
+
+    public Client(String nom, String prenom, Enum<Sexe> sexe, int age, String adresse, String mail, String mdp, String nomCB, int numeroBancaire, int codeCVV) {
         this.nom = nom;
         this.prenom = prenom;
         this.sexe = sexe;
@@ -25,6 +32,9 @@ public class Client {
         this.adresse = adresse;
         this.mail = mail;
         this.mdp = mdp;
+        this.nomCB = nomCB;
+        this.numeroBancaire = numeroBancaire;
+        this.codeCVV = codeCVV;
     }
 
     public Client() {
@@ -88,5 +98,28 @@ public class Client {
     }
     public ObjectId getId() {
         return id;
+    }
+    public String getNomCB() {
+        return nomCB;
+    }
+
+    public void setNomCB(String nomCB) {
+        this.nomCB = nomCB;
+    }
+
+    public int getNumeroBancaire() {
+        return numeroBancaire;
+    }
+
+    public void setNumeroBancaire(int numeroBancaire) {
+        this.numeroBancaire = numeroBancaire;
+    }
+
+    public int getCodeCVV() {
+        return codeCVV;
+    }
+
+    public void setCodeCVV(int codeCVV) {
+        this.codeCVV = codeCVV;
     }
 }

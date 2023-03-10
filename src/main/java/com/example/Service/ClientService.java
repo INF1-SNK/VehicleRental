@@ -36,6 +36,9 @@ public class ClientService {
                 client.setAdresse(document.getString("adresse"));
                 client.setMail(document.getString("mail"));
                 client.setMdp(document.getString("mdp"));
+                client.setNomCB(document.getString("nomCB"));
+                client.setNumeroBancaire(document.getInteger("numeroBancaire"));
+                client.setCodeCVV(document.getInteger("codeCVV"));
                 list.add(client);
             }
         } finally {

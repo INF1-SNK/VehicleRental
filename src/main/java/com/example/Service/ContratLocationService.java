@@ -2,6 +2,7 @@ package com.example.Service;
 
 import com.example.Model.Client;
 import com.example.Model.ContratLocation;
+import com.example.Model.Entreprise;
 import com.example.Model.Vehicule;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -39,6 +40,8 @@ public class ContratLocationService {
                 contratLocation.setDateDebut(document.getDate("dateDebut"));
                 contratLocation.setDateFin(document.getDate("dateFin"));
                 contratLocation.setVehicule((Vehicule) document.get("vehicule"));
+                contratLocation.setEntreprise((Entreprise) document.get("entreprise"));
+                contratLocation.setClient((Client) document.get("client"));
                 contratLocation.setMontantTotal(document.getInteger("montantTotal"));
                 contratLocation.setMontantPenalite(document.getInteger("montantPenalite"));
 
@@ -72,12 +75,6 @@ public class ContratLocationService {
         Bson id = eq("_id", contratLocation.getId());
         getCollection().deleteOne(id);
     }
-
-
-
-
-
-
 
 
     //Function

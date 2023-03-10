@@ -13,13 +13,18 @@ public class ContratLocation {
     private Vehicule vehicule;
     private float montantTotal;
     private int montantPenalite;
+    private Client client;
+    private Entreprise entreprise;
 
 
-    public ContratLocation(Date dateDebut, Date dateFin, float montantTotal, int montantCrediter) {
+    public ContratLocation(Date dateDebut, Date dateFin, float montantTotal, int montantCrediter, Client client, Entreprise entreprise, Vehicule v) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.montantTotal = montantTotal;
         this.montantPenalite = montantCrediter;
+        this.client = client;
+        this.entreprise = entreprise;
+        this.vehicule = v;
     }
 
     public ContratLocation() {
@@ -64,6 +69,17 @@ public class ContratLocation {
 
     public void setVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
+    }
+    public Client getClient() { return client; }
+
+    public void setClient(Client client) { this.client = client; }
+
+    public Entreprise getEntreprise() {
+        return entreprise;
+    }
+
+    public void setEntreprise(Entreprise entreprise) {
+        this.entreprise = entreprise;
     }
 
     public ObjectId getId() {

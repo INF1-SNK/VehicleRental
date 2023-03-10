@@ -7,16 +7,19 @@ public class Entreprise {
     private ObjectId id;
     private int NumeroSiret;
     private String nom;
-    private InformationBancaire compteBancaire ;
+    private String compteBancaireIBAN ;
     private String adresse;
     private int telRepresentantLegal;
 
-    public Entreprise(int numeroSiret, String nom, InformationBancaire compteBancaire, String adresse, int telRepresentantLegal) {
+    public Entreprise(int numeroSiret, String nom, String compteBancaireIBAN, String adresse, int telRepresentantLegal) {
         NumeroSiret = numeroSiret;
         this.nom = nom;
-        this.compteBancaire = compteBancaire;
+        this.compteBancaireIBAN = compteBancaireIBAN;
         this.adresse = adresse;
         this.telRepresentantLegal = telRepresentantLegal;
+    }
+
+    public Entreprise() {
     }
 
 
@@ -44,12 +47,12 @@ public class Entreprise {
         this.nom = nom;
     }
 
-    public InformationBancaire getCompteBancaire() {
-        return compteBancaire;
+    public String getCompteBancaire() {
+        return compteBancaireIBAN;
     }
 
-    public void setCompteBancaire(InformationBancaire compteBancaire) {
-        this.compteBancaire = compteBancaire;
+    public void setCompteBancaire(String compteBancaire) {
+        this.compteBancaireIBAN = compteBancaire;
     }
 
     public String getAdresse() {
