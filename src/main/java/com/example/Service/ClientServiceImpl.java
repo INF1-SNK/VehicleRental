@@ -10,6 +10,7 @@ import org.bson.conversions.Bson;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -48,6 +49,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     //POST - Create User: api/student
+<<<<<<< Updated upstream
     public void add(Client client) {
         Document document = new Document()
                 .append("noms", client.getNom())
@@ -57,8 +59,25 @@ public class ClientServiceImpl implements ClientService {
                 .append("adresse", client.getAdresse())
                 .append("mail", client.getMail())
                 .append("mdp", client.getMdp());
+=======
+    public void add(Client client) throws InvalidPropertiesFormatException {
+>>>>>>> Stashed changes
 
-        getCollection().insertOne(document);
+        if(client.getAge() >= 18) {
+            Document document = new Document()
+                    .append("noms", client.getNom())
+                    .append("prenoms", client.getPrenom())
+                    .append("sexe", client.getSexe())
+                    .append("adresse", client.getAdresse())
+                    .append("mail", client.getMail())
+                    .append("mdp", client.getMdp())
+                    .append("age", client.getAge());
+
+            getCollection().insertOne(document);
+        }
+        else{
+            throw new InvalidPropertiesFormatException("Too Yong");
+        }
     }
 
     //GET - User by ID : api/student/{id}
