@@ -1,11 +1,8 @@
 package com.example.Ressource;
 
-import com.example.Model.Client;
 import com.example.Model.ContratLocation;
-import com.example.Service.ClientService;
-import com.example.Service.ContratLocationService;
+import com.example.Service.ContratLocationServiceImpl;
 import org.bson.Document;
-import org.bson.types.ObjectId;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -14,20 +11,20 @@ import java.util.List;
 public class ContratLocationRessource {
 
     @Inject
-    ContratLocationService contratLocationService;
+    ContratLocationServiceImpl contratLocationServiceImpl;
 
     //GET – Fetch All Users api/contratLocation
     @Path("api/contratLocation")
     @GET
     public List<ContratLocation> list() {
-        return contratLocationService.list();
+        return contratLocationServiceImpl.list();
     }
 
     //Create User: api/contratLocation
     @Path("api/contratLocation/add")
     @POST
     public List<ContratLocation> add(ContratLocation contratLocation) {
-        contratLocationService.add(contratLocation);
+        contratLocationServiceImpl.add(contratLocation);
         return list();
     }
 
@@ -35,14 +32,14 @@ public class ContratLocationRessource {
     @Path("api/contratLocation/{id}")
     @GET
     public Document getById(ContratLocation contratLocation) {
-        return contratLocationService.getContratLocationById(contratLocation);
+        return contratLocationServiceImpl.getContratLocationById(contratLocation);
     }
 
     //DELETE : api/contratLocation/{id}
     @Path("api/contratLocation/{id}")
     @GET
     public void deleteById(ContratLocation contratLocation) {
-        contratLocationService.deleteContratLocationById(contratLocation);
+        contratLocationServiceImpl.deleteContratLocationById(contratLocation);
     }
 
     //PUT – Edit Client api/contratLocation/{id}
