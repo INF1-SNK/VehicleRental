@@ -35,14 +35,14 @@ public class ContratLocationRessource {
     @Path("api/contratLocation/{id}")
     @GET
     public Document getById(ContratLocation contratLocation) {
-        return contratLocationService.getClientById(contratLocation);
+        return contratLocationService.getContratLocationById(contratLocation);
     }
 
     //DELETE : api/contratLocation/{id}
     @Path("api/contratLocation/{id}")
     @GET
     public void deleteById(ContratLocation contratLocation) {
-        contratLocationService.deleteClientById(contratLocation);
+        contratLocationService.deleteContratLocationById(contratLocation);
     }
 
     //PUT – Edit Client api/contratLocation/{id}
