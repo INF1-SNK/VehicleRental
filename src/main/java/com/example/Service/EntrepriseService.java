@@ -1,6 +1,5 @@
 package com.example.Service;
 
-import com.example.Model.Client;
 import com.example.Model.Entreprise;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -18,7 +17,7 @@ public class EntrepriseService {
     @Inject
     MongoClient mongoClient;
 
-    //GET – Fetch All client api/student
+    //GET – Fetch All client api/entreprise
     public List<Entreprise> list(){
         List<Entreprise> list = new ArrayList<>();
         MongoCursor cursor = getCollection().find().iterator();
@@ -40,34 +39,29 @@ public class EntrepriseService {
         return list;
     }
 
-    //POST - Create User: api/student
-    public void add(Client client){
+    //POST - Create User: api/entreprise
+    public void add(Entreprise entreprise){
         Document document = new Document()
-                .append("noms", client.getNom())
-                .append("prenoms", client.getPrenom())
-                .append("age", client.getAge())
-                .append("sexe", client.getSexe())
-                .append("adresse", client.getAdresse())
-                .append("mail", client.getMail())
-                .append("mdp", client.getMdp());
+                .append("nom", entreprise.getNom())
+                .append("numeroSiret", entreprise.getNumeroSiret())
+                .append("adresse", entreprise.getAdresse())
+                .append("telRepresentantLegal", entreprise.getTelRepresentantLegal())
+                .append("compteBancaireIBAN", entreprise.getCompteBancaire());
 
         getCollection().insertOne(document);
     }
 
-    //GET - User by ID : api/student/{id}
-    public Document getClientById(Client client) {
-        Bson id = eq("_id", client.getId());
+    //GET - User by ID : api/entreprise/{id}
+    public Document getClientById(Entreprise entreprise) {
+        Bson id = eq("_id", entreprise.getId());
         Document document = (Document) getCollection().find(id).first();
         return document;
     }
 
-    public void deleteClientById(Client client) {
-        Bson id = eq("_id", client.getId());
+    public void deleteClientById(Entreprise entreprise) {
+        Bson id = eq("_id", entreprise.getId());
         getCollection().deleteOne(id);
     }
-
-
-
 
 
     private MongoCollection getCollection(){
